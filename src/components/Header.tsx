@@ -13,7 +13,7 @@ export const Header = () => {
     <header className="fixed top-0 left-0 right-0 h-16 z-50 bg-background/95 backdrop-blur-lg border-b border-border/50">
       <div className="h-full px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-2 shrink-0 cursor-pointer" onClick={() => navigate('/')}>
           <img src={logo} alt="Logo" className="w-8 h-8" />
           <img src={prancheta} alt="Prancheta" className="w-12 h-12" />
         </div>
