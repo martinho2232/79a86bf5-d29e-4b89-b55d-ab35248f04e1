@@ -1,21 +1,30 @@
-import { Home, Compass, GraduationCap, Settings, Flame } from "lucide-react";
+import { Home, Compass, GraduationCap, Settings, Flame, ShoppingBag } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useNavigate } from "react-router-dom";
 const navItems = [{
   icon: Home,
   label: "Início",
+  path: "/",
   active: true
 }, {
   icon: Compass,
   label: "Explorar",
+  path: "/explore",
   active: false
 }, {
   icon: GraduationCap,
-  label: "Curso",
+  label: "Cursos",
+  path: "/courses",
+  active: false
+}, {
+  icon: ShoppingBag,
+  label: "Loja",
+  path: "/shop",
   active: false
 }, {
   icon: Settings,
   label: "Configurações",
+  path: "/settings",
   active: false
 }];
 const topUsers = [{
@@ -52,12 +61,7 @@ export const LeftSidebar = () => {
           <nav className="space-y-1">
             {navItems.map(item => <button 
                 key={item.label} 
-                onClick={() => {
-                  if (item.label === "Início") navigate("/");
-                  if (item.label === "Explorar") navigate("/explore");
-                  if (item.label === "Curso") navigate("/courses");
-                  if (item.label === "Configurações") navigate("/settings");
-                }}
+                onClick={() => navigate(item.path)}
                 className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${item.active ? "bg-accent text-accent-foreground" : "text-foreground hover:bg-secondary"}`}>
                 <item.icon className="w-5 h-5" />
                 <span>{item.label}</span>

@@ -1,4 +1,4 @@
-import { Home, Compass, GraduationCap, Settings } from "lucide-react";
+import { Home, Compass, GraduationCap, Settings, ShoppingBag } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 export const BottomNavigation = () => {
@@ -7,8 +7,8 @@ export const BottomNavigation = () => {
 
   const navItems = [
     { icon: Home, label: "Início", path: "/" },
-    { icon: Compass, label: "Explorar", path: "/explore" },
     { icon: GraduationCap, label: "Cursos", path: "/courses" },
+    { icon: ShoppingBag, label: "Loja", path: "/shop" },
     { icon: Settings, label: "Configurações", path: "/settings" },
   ];
 
