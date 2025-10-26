@@ -58,14 +58,24 @@ export const LeftSidebar = () => {
           <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">
             Geral
           </h3>
-          <nav className="space-y-1">
-            {navItems.map(item => <button 
-                key={item.label} 
-                onClick={() => navigate(item.path)}
-                className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${item.active ? "bg-accent text-accent-foreground" : "text-foreground hover:bg-secondary"}`}>
-                <item.icon className="w-5 h-5" />
-                <span>{item.label}</span>
-              </button>)}
+          <nav className="space-y-3">
+            {navItems.map(item => (
+              <div key={item.label} className="nav-button-wrapper">
+                <div className="nav-glow"></div>
+                <div className="nav-darkBorderBg"></div>
+                <div className="nav-darkBorderBg"></div>
+                <div className="nav-darkBorderBg"></div>
+                <div className="nav-white"></div>
+                <div className="nav-border"></div>
+                
+                <button 
+                  onClick={() => navigate(item.path)}
+                  className={`nav-button ${item.active ? "nav-button-active" : ""}`}>
+                  <item.icon className="w-5 h-5" />
+                  <span>{item.label}</span>
+                </button>
+              </div>
+            ))}
           </nav>
         </div>
 
