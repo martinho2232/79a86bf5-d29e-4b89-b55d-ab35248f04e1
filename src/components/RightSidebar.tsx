@@ -1,4 +1,5 @@
-import { TrendingUp } from "lucide-react";
+import { TrendingUp, Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
 
 const trendingTopics = [
   { rank: "01", name: "Tecnologia", posts: "90K Posts", percentage: "8.5%" },
@@ -38,6 +39,18 @@ const recentActivities = [
 export const RightSidebar = () => {
   return (
     <aside className="hidden lg:block fixed right-0 top-16 bottom-0 w-80 overflow-y-auto p-4 space-y-4">
+      {/* Barra de Pesquisa */}
+      <div className="card-gradient rounded-lg border border-border p-4 backdrop-blur-sm">
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+          <Input 
+            type="text" 
+            placeholder="Buscar..." 
+            className="pl-10 bg-background/50 border-border focus:border-primary transition-colors"
+          />
+        </div>
+      </div>
+
       {/* Tópicos em Alta */}
       <div className="card-gradient rounded-lg border border-border p-4 backdrop-blur-sm">
         <div className="flex items-center gap-2 mb-4">
