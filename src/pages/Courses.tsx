@@ -50,6 +50,11 @@ const Courses = () => {
       
       <main className="lg:ml-64 lg:mr-80 pt-16 min-h-screen">
         <div className="container mx-auto px-4 py-8">
+          <div className="mb-8">
+            <h1 className="text-4xl font-bold mb-2 text-foreground">Catálogo de Cursos</h1>
+            <p className="text-muted-foreground">Escolha um curso para começar a aprender</p>
+          </div>
+          
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 justify-items-center">
             {coursesData.map((course) => (
               <CourseCard
