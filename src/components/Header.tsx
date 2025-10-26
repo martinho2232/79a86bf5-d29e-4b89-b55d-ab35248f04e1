@@ -3,8 +3,23 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import logo from "@/assets/logo.png";
+import { useState, useEffect } from "react";
+
 export const Header = () => {
-  return <header className="fixed top-0 left-0 right-0 h-16 bg-transparent z-50 flex items-center justify-between px-3 md:px-6">
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return <header className={`fixed top-0 left-0 right-0 h-16 z-50 flex items-center justify-between px-3 md:px-6 transition-all duration-300 ${
+    isScrolled ? "bg-background/80 backdrop-blur-lg shadow-sm" : "bg-transparent"
+  }`}>
       {/* Logo */}
       <div className="flex items-center gap-2 shrink-0">
         <img src={logo} alt="Logo" className="w-8 h-8" />
