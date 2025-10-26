@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useNavigate } from "react-router-dom";
 import { YouTubePlayer } from "@/components/YouTubePlayer";
 import { BottomNavigation } from "@/components/BottomNavigation";
-import logo from "@/assets/logo.png";
+import { Header } from "@/components/Header";
 
 interface Lesson {
   id: string;
@@ -63,23 +63,8 @@ export default function Course() {
 
   return (
     <div className="min-h-screen bg-background pb-16 md:pb-0">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 h-16 bg-[#0A0A0A] border-b border-border z-50 flex items-center justify-between px-4 md:px-6">
-        <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate("/")}>
-          <img src={logo} alt="Logo" className="h-8 w-8" />
-        </div>
-        
-        <div className="hidden md:flex items-center gap-4">
-          <div className="flex items-center gap-3">
-            <Avatar className="h-8 w-8">
-              <AvatarImage src="" />
-              <AvatarFallback className="bg-primary text-primary-foreground">MC</AvatarFallback>
-            </Avatar>
-            <span className="text-sm font-medium text-foreground">Melina Costa</span>
-            <ChevronDown className="w-4 h-4 text-muted-foreground" />
-          </div>
-        </div>
-      </header>
+      {/* Header Principal */}
+      <Header />
 
       {/* Main Content */}
       <div className="flex pt-16">
