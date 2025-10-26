@@ -25,16 +25,6 @@ export const Header = () => {
           <img src={prancheta} alt="Prancheta" className="w-12 h-12" />
         </div>
 
-        {/* Right Icons */}
-        <div className="flex items-center gap-2">
-          <Button 
-            variant="ghost" 
-            size="icon"
-            className="w-10 h-10 hover:bg-secondary/50 transition-all"
-          >
-            <Share2 className="w-5 h-5" />
-          </Button>
-        </div>
       </div>
     </header>
   );
