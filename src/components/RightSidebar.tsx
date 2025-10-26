@@ -1,5 +1,4 @@
 import { TrendingUp, Search } from "lucide-react";
-import { Input } from "@/components/ui/input";
 
 const trendingTopics = [
   { rank: "01", name: "Tecnologia", posts: "90K Posts", percentage: "8.5%" },
@@ -39,26 +38,26 @@ const recentActivities = [
 export const RightSidebar = () => {
   return (
     <aside className="hidden lg:block fixed right-0 top-16 bottom-0 w-80 overflow-y-auto p-4 space-y-4">
-      {/* Barra de Pesquisa */}
-      <div className="flex justify-center items-center">
-        <div id="poda">
-          <div className="glow"></div>
-          <div className="darkBorderBg"></div>
-          <div className="darkBorderBg"></div>
-          <div className="darkBorderBg"></div>
-          <div className="white"></div>
-          <div className="border"></div>
+      {/* Barra de Pesquisa Animada */}
+      <div className="flex justify-center items-center mb-4">
+        <div className="search-wrapper">
+          <div className="search-glow"></div>
+          <div className="search-darkBorderBg"></div>
+          <div className="search-darkBorderBg"></div>
+          <div className="search-darkBorderBg"></div>
+          <div className="search-white"></div>
+          <div className="search-border"></div>
           
-          <div id="main">
+          <div className="search-main">
             <input 
               placeholder="Buscar..." 
               type="text" 
-              className="input" 
+              className="search-input" 
             />
-            <div id="input-mask"></div>
-            <div id="pink-mask"></div>
+            <div className="search-input-mask"></div>
+            <div className="search-pink-mask"></div>
             
-            <div id="search-icon">
+            <div className="search-icon">
               <Search className="w-5 h-5" strokeWidth={2} />
             </div>
           </div>

@@ -274,23 +274,24 @@ All colors MUST be HSL.
     background: var(--gradient-card-subtle);
   }
 
-  /* Animated Search Input Styles */
-  .white,
-  .border,
-  .darkBorderBg,
-  .glow {
+  /* Animated Search Input Styles - Scoped */
+  .search-white,
+  .search-border,
+  .search-darkBorderBg,
+  .search-glow {
     max-height: 70px;
     max-width: 314px;
     height: 100%;
     width: 100%;
     position: absolute;
     overflow: hidden;
-    z-index: -1;
+    z-index: 0;
     border-radius: 12px;
     filter: blur(3px);
+    pointer-events: none;
   }
 
-  .input {
+  .search-input {
     background-color: #010201;
     border: none;
     width: 301px;
@@ -299,28 +300,32 @@ All colors MUST be HSL.
     color: white;
     padding-inline: 59px;
     font-size: 18px;
+    position: relative;
+    z-index: 10;
   }
 
-  #poda {
+  .search-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    width: 320px;
+    height: 70px;
   }
 
-  .input::placeholder {
+  .search-input::placeholder {
     color: #c0b9c0;
   }
 
-  .input:focus {
+  .search-input:focus {
     outline: none;
   }
 
-  #main:focus-within > #input-mask {
+  .search-main:focus-within .search-input-mask {
     display: none;
   }
 
-  #input-mask {
+  .search-input-mask {
     pointer-events: none;
     width: 100px;
     height: 20px;
@@ -328,9 +333,10 @@ All colors MUST be HSL.
     background: linear-gradient(90deg, transparent, black);
     top: 18px;
     left: 70px;
+    z-index: 11;
   }
 
-  #pink-mask {
+  .search-pink-mask {
     pointer-events: none;
     width: 30px;
     height: 20px;
@@ -341,20 +347,21 @@ All colors MUST be HSL.
     filter: blur(20px);
     opacity: 0.8;
     transition: all 2s;
+    z-index: 11;
   }
 
-  #main:hover > #pink-mask {
+  .search-main:hover .search-pink-mask {
     opacity: 0;
   }
 
-  .white {
+  .search-white {
     max-height: 63px;
     max-width: 307px;
     border-radius: 10px;
     filter: blur(2px);
   }
 
-  .white::before {
+  .search-white::before {
     content: "";
     z-index: -2;
     text-align: center;
@@ -378,14 +385,14 @@ All colors MUST be HSL.
     transition: all 2s;
   }
 
-  .border {
+  .search-border {
     max-height: 59px;
     max-width: 303px;
     border-radius: 11px;
     filter: blur(0.5px);
   }
 
-  .border::before {
+  .search-border::before {
     content: "";
     z-index: -2;
     text-align: center;
@@ -409,12 +416,12 @@ All colors MUST be HSL.
     transition: all 2s;
   }
 
-  .darkBorderBg {
+  .search-darkBorderBg {
     max-height: 65px;
     max-width: 312px;
   }
 
-  .darkBorderBg::before {
+  .search-darkBorderBg::before {
     content: "";
     z-index: -2;
     text-align: center;
@@ -437,43 +444,43 @@ All colors MUST be HSL.
     transition: all 2s;
   }
 
-  #poda:hover > .darkBorderBg::before {
+  .search-wrapper:hover .search-darkBorderBg::before {
     transform: translate(-50%, -50%) rotate(-98deg);
   }
 
-  #poda:hover > .glow::before {
+  .search-wrapper:hover .search-glow::before {
     transform: translate(-50%, -50%) rotate(-120deg);
   }
 
-  #poda:hover > .white::before {
+  .search-wrapper:hover .search-white::before {
     transform: translate(-50%, -50%) rotate(-97deg);
   }
 
-  #poda:hover > .border::before {
+  .search-wrapper:hover .search-border::before {
     transform: translate(-50%, -50%) rotate(-110deg);
   }
 
-  #poda:focus-within > .darkBorderBg::before {
+  .search-wrapper:focus-within .search-darkBorderBg::before {
     transform: translate(-50%, -50%) rotate(442deg);
     transition: all 4s;
   }
 
-  #poda:focus-within > .glow::before {
+  .search-wrapper:focus-within .search-glow::before {
     transform: translate(-50%, -50%) rotate(420deg);
     transition: all 4s;
   }
 
-  #poda:focus-within > .white::before {
+  .search-wrapper:focus-within .search-white::before {
     transform: translate(-50%, -50%) rotate(443deg);
     transition: all 4s;
   }
 
-  #poda:focus-within > .border::before {
+  .search-wrapper:focus-within .search-border::before {
     transform: translate(-50%, -50%) rotate(430deg);
     transition: all 4s;
   }
 
-  .glow {
+  .search-glow {
     overflow: hidden;
     filter: blur(30px);
     opacity: 0.4;
@@ -481,7 +488,7 @@ All colors MUST be HSL.
     max-width: 354px;
   }
 
-  .glow:before {
+  .search-glow:before {
     content: "";
     z-index: -2;
     text-align: center;
@@ -504,11 +511,12 @@ All colors MUST be HSL.
     transition: all 2s;
   }
 
-  #main {
+  .search-main {
     position: relative;
+    z-index: 10;
   }
 
-  #search-icon {
+  .search-icon {
     position: absolute;
     left: 20px;
     top: 50%;
@@ -517,9 +525,6 @@ All colors MUST be HSL.
     align-items: center;
     justify-content: center;
     pointer-events: none;
-  }
-
-  #search-icon svg {
-    stroke: url(#search-gradient);
+    z-index: 12;
   }
 }
