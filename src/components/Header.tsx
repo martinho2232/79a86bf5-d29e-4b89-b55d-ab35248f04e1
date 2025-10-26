@@ -32,7 +32,7 @@ export const Header = () => {
       {/* Logo */}
       <div className="flex items-center shrink-0">
         <img src={logo} alt="Logo" className="w-8 h-8" />
-        <img src={prancheta} alt="Prancheta" className="w-8 h-8" />
+        <img src={prancheta} alt="Prancheta" className="w-12 h-12" />
       </div>
 
       {/* Barra de Pesquisa - Oculta no mobile */}
