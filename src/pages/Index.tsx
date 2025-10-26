@@ -3,6 +3,7 @@ import { LeftSidebar } from "@/components/LeftSidebar";
 import { RightSidebar } from "@/components/RightSidebar";
 import { PostCreator } from "@/components/PostCreator";
 import { PostCard } from "@/components/PostCard";
+import { BottomNavigation } from "@/components/BottomNavigation";
 const samplePosts = [{
   author: {
     name: "Marie Kirk",
@@ -42,8 +43,8 @@ const Index = () => {
         <LeftSidebar />
         
         {/* Main Feed */}
-        <main className="flex-1 ml-64 mr-80 min-h-screen">
-          <div className="w-full px-6 pb-6 space-y-4">
+        <main className="flex-1 lg:ml-64 lg:mr-80 min-h-screen">
+          <div className="w-full px-3 md:px-6 pb-20 md:pb-6 space-y-4">
             <PostCreator />
             <div className="space-y-4">
               {samplePosts.map((post, index) => <PostCard key={index} {...post} />)}
@@ -53,6 +54,8 @@ const Index = () => {
 
         <RightSidebar />
       </div>
+      
+      <BottomNavigation />
     </div>;
 };
 export default Index;

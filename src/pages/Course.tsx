@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useNavigate } from "react-router-dom";
 import { YouTubePlayer } from "@/components/YouTubePlayer";
+import { BottomNavigation } from "@/components/BottomNavigation";
 import logo from "@/assets/logo.png";
 
 interface Lesson {
@@ -61,14 +62,14 @@ export default function Course() {
   const current = getCurrentLesson();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-16 md:pb-0">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 h-16 bg-[#0A0A0A] border-b border-border z-50 flex items-center justify-between px-6">
+      <header className="fixed top-0 left-0 right-0 h-16 bg-[#0A0A0A] border-b border-border z-50 flex items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate("/")}>
           <img src={logo} alt="Logo" className="h-8 w-8" />
         </div>
         
-        <div className="flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-4">
           <div className="flex items-center gap-3">
             <Avatar className="h-8 w-8">
               <AvatarImage src="" />
@@ -82,8 +83,8 @@ export default function Course() {
 
       {/* Main Content */}
       <div className="flex pt-16">
-        {/* Left Sidebar - Course Navigation */}
-        <aside className="fixed left-0 top-16 bottom-0 w-80 border-r border-border overflow-y-auto card-gradient">
+        {/* Left Sidebar - Course Navigation - Hidden on mobile */}
+        <aside className="hidden md:block fixed left-0 top-16 bottom-0 w-80 border-r border-border overflow-y-auto card-gradient">
           <div className="p-6 space-y-6">
             {/* Access Purchases Card */}
             <div className="bg-[#0A0A0A] rounded-lg p-4 flex items-center gap-3 cursor-pointer hover:bg-[#0A0A0A]/80 transition-colors">
@@ -171,52 +172,56 @@ export default function Course() {
         </aside>
 
         {/* Main Content Area */}
-        <main className="ml-80 flex-1 p-6">
-          <div className="mx-6 space-y-6">
+        <main className="md:ml-80 flex-1 p-3 md:p-6">
+          <div className="md:mx-6 space-y-4 md:space-y-6">
             {/* Video Player */}
             <YouTubePlayer videoId="qUPF1akyqlw" />
 
             {/* Lesson Actions */}
             <div className="flex items-center justify-between">
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2">
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 text-sm md:text-base h-9 md:h-10">
                 <CheckCircle className="w-4 h-4" />
-                Marcar como vista
+                <span className="hidden sm:inline">Marcar como vista</span>
+                <span className="sm:hidden">Marcar</span>
               </Button>
             </div>
 
             {/* Lesson Title */}
             <div>
-              <h2 className="text-2xl font-bold text-foreground">
+              <h2 className="text-xl md:text-2xl font-bold text-foreground">
                 {current?.lesson.title || "Purple Spoofer CMD - Regedit"}
               </h2>
             </div>
 
             {/* Comments Section */}
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               <div className="flex items-center gap-2">
-                <h3 className="text-lg font-semibold text-foreground">Comentários</h3>
-                <span className="text-sm text-muted-foreground">0</span>
+                <h3 className="text-base md:text-lg font-semibold text-foreground">Comentários</h3>
+                <span className="text-xs md:text-sm text-muted-foreground">0</span>
               </div>
               
-              <div className="bg-card rounded-lg border border-border p-8 text-center">
-                <p className="text-muted-foreground">Nenhum comentário ainda. Seja o primeiro a comentar!</p>
+              <div className="bg-card rounded-lg border border-border p-6 md:p-8 text-center">
+                <p className="text-sm md:text-base text-muted-foreground">Nenhum comentário ainda. Seja o primeiro a comentar!</p>
               </div>
             </div>
 
             {/* Navigation Buttons */}
-            <div className="flex justify-end gap-4 pt-8">
-              <Button variant="outline" className="gap-2">
+            <div className="flex justify-end gap-2 md:gap-4 pt-6 md:pt-8 pb-4 md:pb-0">
+              <Button variant="outline" className="gap-2 text-sm md:text-base h-9 md:h-10">
                 <ChevronLeft className="w-4 h-4" />
-                Anterior
+                <span className="hidden sm:inline">Anterior</span>
               </Button>
-              <Button className="bg-foreground text-background hover:bg-foreground/90 gap-2">
-                Próximo
+              <Button className="bg-foreground text-background hover:bg-foreground/90 gap-2 text-sm md:text-base h-9 md:h-10">
+                <span className="hidden sm:inline">Próximo</span>
+                <span className="sm:hidden">Próx</span>
                 <ChevronRight className="w-4 h-4" />
               </Button>
             </div>
           </div>
         </main>
       </div>
+      
+      <BottomNavigation />
     </div>
   );
 }
