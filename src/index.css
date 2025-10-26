@@ -2,6 +2,124 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  /* Course Card Styles */
+  .course-card {
+    @apply overflow-visible w-[250px] h-[290px];
+  }
+
+  .course-card-content {
+    @apply w-full h-full relative transition-transform duration-300;
+    transform-style: preserve-3d;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.9);
+    border-radius: 5px;
+  }
+
+  .course-card:hover .course-card-content {
+    transform: rotateY(180deg);
+  }
+
+  .course-card-front,
+  .course-card-back {
+    @apply absolute w-full h-full rounded-md overflow-hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .course-card-front {
+    @apply bg-card;
+    transform: rotateY(0deg);
+  }
+
+  .course-card-back {
+    @apply bg-card flex items-center justify-center;
+    transform: rotateY(180deg);
+  }
+
+  .course-card-back::before {
+    @apply absolute block;
+    content: ' ';
+    width: 160px;
+    height: 160%;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary)), hsl(var(--primary)), hsl(var(--primary)), hsl(var(--primary)), transparent);
+    animation: rotation_481 5000ms infinite linear;
+  }
+
+  .course-card-back-content {
+    @apply absolute w-[99%] h-[99%] bg-card rounded-md flex flex-col justify-center items-center gap-8 z-10;
+  }
+
+  @keyframes rotation_481 {
+    0% {
+      transform: rotateZ(0deg);
+    }
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
+
+  .course-card-bg {
+    @apply absolute w-full h-full;
+  }
+
+  .course-card-front-content {
+    @apply absolute w-full h-full p-3 flex flex-col justify-between;
+  }
+
+  .course-badge {
+    @apply bg-background/50 px-3 py-1 rounded-xl backdrop-blur-sm w-fit text-sm;
+  }
+
+  .course-description {
+    @apply w-full p-3 bg-background/80 backdrop-blur-md rounded-md;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .course-title-wrapper {
+    @apply text-sm flex justify-between items-start gap-2;
+  }
+
+  .course-title {
+    @apply flex-1;
+  }
+
+  .bookmark-icon {
+    @apply text-primary shrink-0;
+  }
+
+  .course-footer {
+    @apply text-muted-foreground mt-2 text-xs;
+  }
+
+  .floating-circle {
+    @apply absolute w-[90px] h-[90px] rounded-full bg-primary/60;
+    filter: blur(15px);
+    animation: floating 2600ms infinite linear;
+  }
+
+  .floating-circle-right {
+    @apply w-[30px] h-[30px] left-[160px] -top-[80px];
+    animation-delay: -1800ms;
+  }
+
+  .floating-circle-bottom {
+    @apply w-[150px] h-[150px] left-[50px] top-0;
+    animation-delay: -800ms;
+  }
+
+  @keyframes floating {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */

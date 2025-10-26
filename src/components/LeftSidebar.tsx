@@ -53,7 +53,7 @@ export const LeftSidebar = () => {
             {navItems.map(item => <button 
                 key={item.label} 
                 onClick={() => {
-                  if (item.label === "Curso") navigate("/course");
+                  if (item.label === "Curso") navigate("/courses");
                   if (item.label === "Configurações") navigate("/settings");
                 }}
                 className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${item.active ? "bg-accent text-accent-foreground" : "text-foreground hover:bg-secondary"}`}>
