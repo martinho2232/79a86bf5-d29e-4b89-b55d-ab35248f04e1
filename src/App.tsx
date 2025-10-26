@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Course from "./pages/Course";
 import Courses from "./pages/Courses";
+import Explore from "./pages/Explore";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
@@ -21,6 +22,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/explore" element={<Explore />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/course/:id" element={<Course />} />
           <Route path="/settings" element={<Settings />} />

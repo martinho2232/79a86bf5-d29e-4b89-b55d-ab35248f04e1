@@ -53,6 +53,8 @@ export const LeftSidebar = () => {
             {navItems.map(item => <button 
                 key={item.label} 
                 onClick={() => {
+                  if (item.label === "Início") navigate("/");
+                  if (item.label === "Explorar") navigate("/explore");
                   if (item.label === "Curso") navigate("/courses");
                   if (item.label === "Configurações") navigate("/settings");
                 }}
