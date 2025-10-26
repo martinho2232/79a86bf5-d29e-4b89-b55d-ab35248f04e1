@@ -1,4 +1,4 @@
-import { TrendingUp, Search, SlidersHorizontal } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 
 const trendingTopics = [
   { rank: "01", name: "Tecnologia", posts: "90K Posts", percentage: "8.5%" },
@@ -36,35 +36,10 @@ const recentActivities = [
 ];
 
 export const RightSidebar = () => {
-  console.log("RightSidebar rendering - trendingTopics:", trendingTopics.length, "recentActivities:", recentActivities.length);
-  
   return (
     <aside className="hidden lg:block fixed right-0 top-16 bottom-0 w-80 overflow-y-auto p-4 space-y-4">
-      {/* Search Input */}
-      <div className="flex justify-center mb-6 min-h-[90px]">
-        <div id="main" className="relative z-10">
-          <div id="poda">
-            <div className="glow"></div>
-            <div className="darkBorderBg"></div>
-            <div className="white"></div>
-            <div className="border"></div>
-            <div id="pink-mask"></div>
-            <div id="input-mask"></div>
-            <input className="input" type="text" placeholder="Pesquisar..." />
-            <Search id="search-icon" className="w-5 h-5 text-muted-foreground" />
-            <div id="filter-icon">
-              <SlidersHorizontal className="w-4 h-4 text-muted-foreground" />
-            </div>
-            <div className="filterBorder"></div>
-          </div>
-        </div>
-      </div>
-
       {/* Tópicos em Alta */}
-      <div 
-        className="card-gradient rounded-lg border border-border p-4 backdrop-blur-sm" 
-        style={{background: "red"}}
-      >
+      <div className="card-gradient rounded-lg border border-border p-4 backdrop-blur-sm">
         <div className="flex items-center gap-2 mb-4">
           <TrendingUp className="w-5 h-5 text-accent" />
           <h2 className="font-semibold text-foreground">Tópicos em Alta</h2>
