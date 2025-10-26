@@ -40,14 +40,28 @@ export const RightSidebar = () => {
   return (
     <aside className="hidden lg:block fixed right-0 top-16 bottom-0 w-80 overflow-y-auto p-4 space-y-4">
       {/* Barra de Pesquisa */}
-      <div className="card-gradient rounded-lg border border-border p-4 backdrop-blur-sm">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-          <Input 
-            type="text" 
-            placeholder="Buscar..." 
-            className="pl-10 bg-background/50 border-border focus:border-primary transition-colors"
-          />
+      <div className="flex justify-center items-center">
+        <div id="poda">
+          <div className="glow"></div>
+          <div className="darkBorderBg"></div>
+          <div className="darkBorderBg"></div>
+          <div className="darkBorderBg"></div>
+          <div className="white"></div>
+          <div className="border"></div>
+          
+          <div id="main">
+            <input 
+              placeholder="Buscar..." 
+              type="text" 
+              className="input" 
+            />
+            <div id="input-mask"></div>
+            <div id="pink-mask"></div>
+            
+            <div id="search-icon">
+              <Search className="w-5 h-5" strokeWidth={2} />
+            </div>
+          </div>
         </div>
       </div>
 
