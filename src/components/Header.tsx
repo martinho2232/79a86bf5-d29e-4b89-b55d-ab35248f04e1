@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import logo from "@/assets/logo.png";
+import prancheta from "@/assets/prancheta.png";
 import { useState, useEffect } from "react";
 
 export const Header = () => {
@@ -29,8 +30,9 @@ export const Header = () => {
       isScrolled ? "backdrop-blur-lg" : ""
     }`}>
       {/* Logo */}
-      <div className="flex items-center gap-2 shrink-0">
+      <div className="flex items-center shrink-0">
         <img src={logo} alt="Logo" className="w-8 h-8" />
+        <img src={prancheta} alt="Prancheta" className="w-8 h-8" />
       </div>
 
       {/* Barra de Pesquisa - Oculta no mobile */}
