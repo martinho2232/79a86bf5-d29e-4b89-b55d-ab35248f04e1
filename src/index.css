@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 96%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 96%;
+
+    --primary: 258 90% 66%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 96%;
+
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 63%;
+
+    --accent: 258 90% 66%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Gradients */
+    --gradient-bg: radial-gradient(ellipse at top center, hsl(258 30% 10%) 0%, hsl(258 20% 5%) 30%, hsl(0 0% 2%) 100%);
+    --gradient-card: linear-gradient(0deg, hsl(258 30% 15%) 0%, hsl(258 20% 8%) 50%, hsl(0 0% 6%) 100%);
+    --gradient-card-subtle: linear-gradient(180deg, hsl(0 0% 13%) 0%, hsl(0 0% 8%) 50%, hsl(0 0% 6%) 100%);
+
+    --border: 0 0% 16%;
+    --input: 0 0% 7%;
+    --ring: 258 90% 66%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground;
+    background: var(--gradient-bg);
+    background-attachment: fixed;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.8);
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary)) hsl(var(--background));
+  }
+  
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+  
+  .card-gradient-subtle {
+    background: var(--gradient-card-subtle);
+  }
+}
