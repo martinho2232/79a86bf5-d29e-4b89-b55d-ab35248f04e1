@@ -29,14 +29,6 @@ export const Header = () => {
         <div className="flex items-center gap-2">
           <Button 
             variant="ghost" 
-            size="icon" 
-            className="w-10 h-10 rounded-full border-2 border-primary/50 hover:border-primary hover:bg-primary/10 transition-all"
-          >
-            <LogOut className="w-5 h-5 text-primary" />
-          </Button>
-          
-          <Button 
-            variant="ghost" 
             size="icon"
             className="w-10 h-10 hover:bg-secondary/50 transition-all"
           >
