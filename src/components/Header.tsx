@@ -1,4 +1,4 @@
-import { User, Share2 } from "lucide-react";
+import { LogOut, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 import prancheta from "@/assets/prancheta.png";
@@ -32,7 +32,7 @@ export const Header = () => {
             size="icon" 
             className="w-10 h-10 rounded-full border-2 border-primary/50 hover:border-primary hover:bg-primary/10 transition-all"
           >
-            <User className="w-5 h-5 text-primary" />
+            <LogOut className="w-5 h-5 text-primary" />
           </Button>
           
           <Button 
