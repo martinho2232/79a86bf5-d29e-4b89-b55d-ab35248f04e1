@@ -1,7 +1,5 @@
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { ShoppingBag } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Eye } from "lucide-react";
 
 interface ProductCardProps {
   product: {
@@ -16,36 +14,44 @@ interface ProductCardProps {
 
 export const ProductCard = ({ product, onViewDetails }: ProductCardProps) => {
   return (
-    <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-      <div className="relative aspect-video overflow-hidden">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
-        />
-        <Badge className="absolute top-2 right-2">{product.category}</Badge>
-      </div>
-      
-      <CardContent className="p-4">
-        <h3 className="font-semibold text-lg mb-2 line-clamp-2">{product.name}</h3>
-        <p className="text-2xl font-bold text-primary">
-          R$ {product.price.toFixed(2)}
-        </p>
-      </CardContent>
+    <div 
+      className="product-card group cursor-pointer"
+      onClick={onViewDetails}
+    >
+      <div className="product-card-content">
+        {/* Front */}
+        <div className="product-card-front">
+          <div className="product-card-bg">
+            <div className="floating-circle" />
+            <div className="floating-circle floating-circle-right" />
+            <div className="floating-circle floating-circle-bottom" />
+          </div>
+          <div className="product-card-front-content">
+            <Badge variant="secondary" className="w-fit mb-2">{product.category}</Badge>
+            <div className="aspect-video overflow-hidden rounded-md mb-auto">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="product-description">
+              <p className="product-title">
+                <strong>{product.name}</strong>
+              </p>
+              <p className="product-price">R$ {product.price.toFixed(2)}</p>
+            </div>
+          </div>
+        </div>
 
-      <CardFooter className="p-4 pt-0 flex gap-2">
-        <Button 
-          variant="outline" 
-          className="flex-1"
-          onClick={onViewDetails}
-        >
-          <Eye className="w-4 h-4 mr-2" />
-          Ver Detalhes
-        </Button>
-        <Button className="flex-1">
-          Comprar
-        </Button>
-      </CardFooter>
-    </Card>
+        {/* Back */}
+        <div className="product-card-back">
+          <div className="product-card-back-content">
+            <ShoppingBag className="w-16 h-16 text-primary" />
+            <strong className="text-primary text-lg">Visualizar</strong>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };

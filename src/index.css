@@ -118,6 +118,73 @@
       transform: translateY(0px);
     }
   }
+
+  /* Product Card Styles */
+  .product-card {
+    @apply overflow-visible w-[250px] h-[350px];
+  }
+
+  .product-card-content {
+    @apply w-full h-full relative transition-transform duration-300;
+    transform-style: preserve-3d;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.9);
+    border-radius: 5px;
+  }
+
+  .product-card:hover .product-card-content {
+    transform: rotateY(180deg);
+  }
+
+  .product-card-front,
+  .product-card-back {
+    @apply absolute w-full h-full rounded-md overflow-hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .product-card-front {
+    @apply bg-card;
+    transform: rotateY(0deg);
+  }
+
+  .product-card-back {
+    @apply bg-card flex items-center justify-center;
+    transform: rotateY(180deg);
+  }
+
+  .product-card-back::before {
+    @apply absolute block;
+    content: ' ';
+    width: 160px;
+    height: 160%;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary)), hsl(var(--primary)), hsl(var(--primary)), hsl(var(--primary)), transparent);
+    animation: rotation_481 5000ms infinite linear;
+  }
+
+  .product-card-back-content {
+    @apply absolute w-[99%] h-[99%] bg-card rounded-md flex flex-col justify-center items-center gap-8 z-10;
+  }
+
+  .product-card-bg {
+    @apply absolute w-full h-full;
+  }
+
+  .product-card-front-content {
+    @apply absolute w-full h-full p-3 flex flex-col;
+  }
+
+  .product-description {
+    @apply w-full p-3 bg-background/80 backdrop-blur-md rounded-md;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .product-title {
+    @apply text-sm mb-2;
+  }
+
+  .product-price {
+    @apply text-primary font-bold text-xl;
+  }
 }
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
