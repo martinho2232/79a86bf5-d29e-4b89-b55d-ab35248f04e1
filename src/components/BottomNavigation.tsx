@@ -7,6 +7,7 @@ export const BottomNavigation = () => {
 
   const navItems = [
     { icon: Home, label: "Início", path: "/" },
+    { icon: Compass, label: "Explorar", path: "/explore" },
     { icon: GraduationCap, label: "Cursos", path: "/courses" },
     { icon: ShoppingBag, label: "Loja", path: "/shop" },
     { icon: Settings, label: "Configurações", path: "/settings" },
@@ -16,7 +17,7 @@ export const BottomNavigation = () => {
 
   return (
     <nav className="lg:hidden fixed bottom-0 left-0 right-0 h-16 bg-background/95 backdrop-blur-lg border-t border-border z-50">
-      <div className="grid grid-cols-4 h-full">
+      <div className="grid grid-cols-5 h-full">
         {navItems.map((item) => {
           const Icon = item.icon;
           const active = isActive(item.path);
