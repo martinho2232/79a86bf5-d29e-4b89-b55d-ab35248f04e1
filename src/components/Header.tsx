@@ -17,9 +17,17 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return <header className={`fixed top-0 left-0 right-0 h-16 z-50 flex items-center justify-between px-3 md:px-6 transition-all duration-300 ${
-    isScrolled ? "bg-background/80 backdrop-blur-lg shadow-sm" : "bg-transparent"
-  }`}>
+  return <>
+    {/* Gradient overlay to fade content before it reaches header */}
+    <div className={`fixed top-0 left-0 right-0 h-24 z-40 pointer-events-none transition-opacity duration-300 ${
+      isScrolled ? "opacity-100" : "opacity-0"
+    }`} style={{
+      background: "linear-gradient(to bottom, hsl(var(--background)) 0%, transparent 100%)"
+    }} />
+    
+    <header className={`fixed top-0 left-0 right-0 h-16 z-50 flex items-center justify-between px-3 md:px-6 transition-all duration-300 ${
+      isScrolled ? "backdrop-blur-lg" : ""
+    }`}>
       {/* Logo */}
       <div className="flex items-center gap-2 shrink-0">
         <img src={logo} alt="Logo" className="w-8 h-8" />
@@ -56,5 +64,6 @@ export const Header = () => {
           <ChevronDown className="w-4 h-4 text-muted-foreground hidden md:inline" />
         </div>
       </div>
-    </header>;
+    </header>
+  </>;
 };
