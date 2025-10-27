@@ -63,8 +63,6 @@ export const LeftSidebar = () => {
               <div key={item.label} className="nav-button-wrapper">
                 <div className="nav-glow"></div>
                 <div className="nav-darkBorderBg"></div>
-                <div className="nav-darkBorderBg"></div>
-                <div className="nav-darkBorderBg"></div>
                 <div className="nav-white"></div>
                 <div className="nav-border"></div>
                 
