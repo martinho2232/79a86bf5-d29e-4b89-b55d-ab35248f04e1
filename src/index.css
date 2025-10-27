@@ -572,8 +572,8 @@ All colors MUST be HSL.
   }
 
   .nav-button-active {
-    background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--primary)) 100%);
-    color: hsl(var(--accent-foreground));
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.3) 0%, hsl(var(--accent) / 0.2) 100%);
+    color: hsl(var(--foreground));
   }
 
   .nav-white {
