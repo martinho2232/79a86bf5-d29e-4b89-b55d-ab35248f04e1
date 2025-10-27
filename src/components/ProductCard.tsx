@@ -27,8 +27,10 @@ export const ProductCard = ({ product, onViewDetails }: ProductCardProps) => {
             <div className="floating-circle floating-circle-bottom" />
           </div>
           <div className="product-card-front-content">
-            <Badge variant="secondary" className="w-fit mb-2">{product.category}</Badge>
-            <div className="aspect-video overflow-hidden rounded-md mb-auto">
+            <div className="absolute top-3 left-3 z-10">
+              <Badge variant="secondary" className="backdrop-blur-sm bg-background/70">{product.category}</Badge>
+            </div>
+            <div className="flex-1 overflow-hidden rounded-t-md">
               <img
                 src={product.image}
                 alt={product.name}

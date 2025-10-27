@@ -121,7 +121,7 @@
 
   /* Product Card Styles */
   .product-card {
-    @apply overflow-visible w-[250px] h-[350px];
+    @apply overflow-visible w-full max-w-[320px] h-[420px] mx-auto;
   }
 
   .product-card-content {
@@ -170,11 +170,11 @@
   }
 
   .product-card-front-content {
-    @apply absolute w-full h-full p-3 flex flex-col;
+    @apply absolute w-full h-full flex flex-col;
   }
 
   .product-description {
-    @apply w-full p-3 bg-background/80 backdrop-blur-md rounded-md;
+    @apply w-full p-4 bg-background/80 backdrop-blur-md rounded-b-md mt-auto;
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
   }
 
