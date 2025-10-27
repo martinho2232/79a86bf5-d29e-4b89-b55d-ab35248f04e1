@@ -91,34 +91,30 @@ const Shop = () => {
   const [selectedProduct, setSelectedProduct] = useState<typeof products[0] | null>(null);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Header />
+      <LeftSidebar />
       
-      <div className="flex w-full pt-16">
-        <LeftSidebar />
-        
-        <main className="flex-1 lg:ml-64 lg:mr-80 min-h-screen">
-          <div className="w-full px-3 md:px-6 pb-20 md:pb-6">
-            <div className="py-6">
-              <h1 className="text-3xl font-bold mb-2">Loja</h1>
-              <p className="text-muted-foreground">Explore nossos produtos e cursos exclusivos</p>
-            </div>
+      <main className="lg:ml-64 lg:mr-80 pt-16 min-h-screen">
+        <div className="container mx-auto px-3 md:px-4 py-6 md:py-8 pb-20 md:pb-8">
+          <div className="mb-6 md:mb-8">
+            <h1 className="text-3xl md:text-4xl font-bold mb-2 text-foreground">Loja</h1>
+            <p className="text-sm md:text-base text-muted-foreground">Explore nossos produtos e cursos exclusivos</p>
+          </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 justify-items-center">
               {products.map((product) => (
                 <ProductCard
                   key={product.id}
                   product={product}
                   onViewDetails={() => setSelectedProduct(product)}
                 />
-              ))}
-            </div>
+            ))}
           </div>
-        </main>
+        </div>
+      </main>
 
-        <RightSidebar />
-      </div>
-      
+      <RightSidebar />
       <BottomNavigation />
 
       {selectedProduct && (
