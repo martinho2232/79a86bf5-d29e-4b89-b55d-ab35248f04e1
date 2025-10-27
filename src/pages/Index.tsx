@@ -45,7 +45,7 @@ const Index = () => {
         {/* Main Feed */}
         <main className="flex-1 lg:ml-64 lg:mr-80 min-h-screen">
           <div className="w-full px-3 md:px-6 pb-20 md:pb-6 space-y-4">
-            <PostCreator />
+            <PostCreator className="" />
             <div className="space-y-4">
               {samplePosts.map((post, index) => <PostCard key={index} {...post} />)}
             </div>
